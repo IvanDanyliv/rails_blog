@@ -26,7 +26,7 @@ class Api::V1::ArticlesController < ApplicationController
     if @article.user_id == @current_api_v1_user.id
       @article.destroy
     else
-      render json: response_params({ error: "Can only delete own article" }), status: 401
+      render json: error: "Can only delete own article", status: 401
     end
   end
 
